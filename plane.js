@@ -50,7 +50,7 @@ class Plane {
             if(data.length > amountNodes) {
                 const delta = Math.abs(data.length - amountNodes);
                 const searchRegExp = new RegExp(`^0{${delta}}`);
-                data.replace(searchRegExp, "");
+                data = data.replace(searchRegExp, "");
             }
 
             // Splits the data into a list, where each entry equals one node.
