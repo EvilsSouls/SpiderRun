@@ -7,7 +7,8 @@ const pathfinder = new Pathfinder(plane, "0,0", "0,0");
 
 resizeCanvas(canvas);
 
-plane.initialize(maze);
+const urlParams = new URLSearchParams(window.location.search);
+plane.initialize(urlParams.get("maze"));
 plane.draw();
 
 // Makes right clicking prevent default behaviour & if right mouse button is clicked gets start pos of path
