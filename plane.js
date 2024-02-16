@@ -15,7 +15,7 @@ class Plane {
         for(let y = 0; y < this.amountY; y++) {
             const currentArray = [];
             for(let x = 0; x < this.amountX; x++) {
-                const node = new Node(this.canvas, x, y, false);
+                const node = new Node(this.canvas, x, y, this.canvas.width / this.amountX, this.canvas.height / this.amountY, false);
                 currentArray.push(node);
             }
 
@@ -69,7 +69,7 @@ class Plane {
             const currentArray = this.data[y];
             for(let x = 0; x < this.amountX; x++) {
                 const currentNode = currentArray[x];
-                currentNode.draw(this.canvas.width / this.amountX, this.canvas.height / this.amountY);
+                currentNode.draw();
 
                 //new CanvasText(this.canvas, `X: ${currentNode.x}, Y: ${currentNode.y}`, undefined, currentNode.x * 100 + 100, currentNode.y * 100 + 100, 100, "black", 1).draw();
             }
@@ -80,7 +80,7 @@ class Plane {
         for(let nodeID of nodes) {
             const nodeCoords = nodeID.split(",");
             const node = this.data[nodeCoords[1]][nodeCoords[0]];
-            node.draw(this.canvas.width / this.amountX, this.canvas.height / this.amountY, color);
+            node.draw(color);
         }
     }
 

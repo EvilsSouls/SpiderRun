@@ -93,7 +93,7 @@ class Pathfinder {
 
                 // Uses the neighbor's coords to get the same node in the plane. Then, uses the draw method of the node to draw it.
                 const planeNode = this.plane.data[neighborNode.y][neighborNode.x];
-                planeNode.draw(this.plane.canvas.width / this.plane.amountX, this.plane.canvas.height / this.plane.amountY, this.visualizationData.openColor);
+                planeNode.draw(this.visualizationData.openColor);
             }
         }
     }
@@ -125,7 +125,7 @@ class Pathfinder {
 
             // Draws the current node to the closedColor (defined in the visualizationData)
             const planeNode = this.plane.data[this.currentNode.y][this.currentNode.x];
-            planeNode.draw(this.plane.canvas.width / this.plane.amountX, this.plane.canvas.height / this.plane.amountY, this.visualizationData.closedColor);
+            planeNode.draw(this.visualizationData.closedColor);
 
             if(newNodeID === this.endNodeID) {
                 this.tracePath(this.currentNode);

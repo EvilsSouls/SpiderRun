@@ -1,2 +1,2 @@
-# AStarPathfinding
-Website implementation of A* Pathfinding
+# SpiderRun
+A Web-game

@@ -1,3 +1,4 @@
+"use strict";
 function resizeCanvas(canvasEl) {
     // Sets the width & height of the element to the same as the window's
     canvasEl.width = window.innerWidth;
