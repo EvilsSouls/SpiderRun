@@ -91,9 +91,11 @@ class Pathfinder {
                     this.sortedOpenNodes.push(neighborNodeID);
                 }
 
-                // Uses the neighbor's coords to get the same node in the plane. Then, uses the draw method of the node to draw it.
-                const planeNode = this.plane.data[neighborNode.y][neighborNode.x];
-                planeNode.draw(this.visualizationData.openColor);
+                if(this.visualizationData.openColor !== null) {
+                    // Uses the neighbor's coords to get the same node in the plane. Then, uses the draw method of the node to draw it.
+                    const planeNode = this.plane.data[neighborNode.y][neighborNode.x];
+                    planeNode.draw(this.visualizationData.openColor);
+                }
             }
         }
     }
@@ -123,15 +125,19 @@ class Pathfinder {
             this.openNodes.delete(newNodeID);
             this.sortedOpenNodes.shift();
 
-            // Draws the current node to the closedColor (defined in the visualizationData)
-            const planeNode = this.plane.data[this.currentNode.y][this.currentNode.x];
-            planeNode.draw(this.visualizationData.closedColor);
+            if(this.visualizationData.closedColor !== null) {
+                // Draws the current node to the closedColor (defined in the visualizationData)
+                const planeNode = this.plane.data[this.currentNode.y][this.currentNode.x];
+                planeNode.draw(this.visualizationData.closedColor);
+            }
 
             if(newNodeID === this.endNodeID) {
                 this.tracePath(this.currentNode);
                 console.log(`Path found. Saved to ${this}.path`);
 
-                this.plane.drawNodesInArray(this.path, this.visualizationData.finalPathColor);
+                if(this.visualizationData.finalPathColor !== null) {
+                    this.plane.drawNodesInArray(this.path, this.visualizationData.finalPathColor);
+                }
 
                 clearInterval(this.interval);
                 this.interval = null;

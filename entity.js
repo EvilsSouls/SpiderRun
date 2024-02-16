@@ -53,4 +53,9 @@ class Entity {
         img.src = this.image;
         this.ctx.drawImage(img, this.x * this.width, this.y * this.height, this.width, this.height);
     }
+
+    update() {
+        this.move();
+        this.draw();
+    }
 }
