@@ -10,7 +10,7 @@ class Plane {
         this.data = [];
     }
 
-    initialize(blueprint = null) {
+    createEmptyNodes() {
         // Creates a 2D Array of empty nodes for the plane.
         for(let y = 0; y < this.amountY; y++) {
             const currentArray = [];
@@ -21,15 +21,18 @@ class Plane {
 
             this.data.push(currentArray);
         }
+    }
 
+    initialize(blueprint = null) {
         if(blueprint !== null) {
             // Blueprint format = xSize,ySize;data (Binary: 0b[binary data]) (Hexadecimal: 0x[hex data])
             blueprint = blueprint.split(";");
 
-            // Gets the x and y size of the plane
+            // Gets the x and y size of the plane and then creates the empty 2D Array
             const planeSize = blueprint[0].split(",");
             this.amountX = planeSize[0];
             this.amountY = planeSize[1];
+            this.createEmptyNodes();
             
             const amountNodes = this.amountX * this.amountY;
 
@@ -60,7 +63,7 @@ class Plane {
                     this.data[y][x].wall = (currentNodeWall === 0) ? false:true;
                 }
             }
-        }
+        } else {this.createEmptyNodes();}
     }
 
     draw() {

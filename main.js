@@ -2,7 +2,7 @@
 const canvas = document.getElementById("field");
 const ctx = canvas.getContext("2d");
 
-const plane = new Plane(canvas, 20, 10);
+const plane = new Plane(canvas, null, null);
 const pathfinder = new Pathfinder(plane, "0,0", "0,0");
 
 resizeCanvas(canvas);
