@@ -7,7 +7,7 @@ const pathfinder = new Pathfinder(plane, "0,0", "0,0");
 
 resizeCanvas(canvas);
 
-plane.initialize("20,10;0x84412f55f6055107d557415567d55601150eff5700056fffc0");
+plane.initialize(maze);
 plane.draw();
 
 // Makes right clicking prevent default behaviour & if right mouse button is clicked gets start pos of path
