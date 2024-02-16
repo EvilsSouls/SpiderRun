@@ -44,7 +44,7 @@ class Plane {
 
             // If the length of the data does not match the length it should be, it means that 0s have been added to the start of the binary number to easily convert it to hexadecimal.
             // This removes the leading zeros, since all data would be pushed x forward if the leading zeros weren't to be removed.
-            if(data.length !== amountNodes) {
+            if(data.length > amountNodes) {
                 const delta = Math.abs(data.length - amountNodes);
                 const searchRegExp = new RegExp(`^0{${delta}}`);
                 data.replace(searchRegExp, "");

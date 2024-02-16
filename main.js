@@ -35,7 +35,7 @@ canvas.addEventListener("click", e => {
         const node = plane.getNodeAtCoords(e.clientX, e.clientY);
         plane.data[node.y][node.x].wall = (plane.data[node.y][node.x].wall) ? false:true;
 
-        plane.data[node.y][node.x].draw(canvas.width / plane.amountX, canvas.height / plane.amountY, (plane.data[node.y][node.x].wall) ? "Black":"White");
+        plane.data[node.y][node.x].draw((plane.data[node.y][node.x].wall) ? "Black":"White");
     }
 });
 
