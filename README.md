@@ -1,2 +1,2 @@
 # SpiderRun
-A Web-game
+A Webgame inspired by the likes of pacman.

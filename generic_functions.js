@@ -22,7 +22,7 @@ function convertBinToHex(binNum) {
     binNum = binNum.toLowerCase().replace("0b", "");
 
     const hexDigits = Math.ceil(binNum.length / 4);
-    const leadingZeros = 4 - (binNum.length % 4);
+    const leadingZeros = (hexDigits * 4) - binNum.length;
     for(let i = 0; i < leadingZeros; i++) {binNum = "0" + binNum;}
 
     let hexNum = "0x";
