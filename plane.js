@@ -60,7 +60,7 @@ class Plane {
                 for(let y = 0; y < this.amountY; y++) {
                     // Converts the x & y indices into the actual position inside the binary string. Then checks whatever or not the current node should be a wall and stores that in currentNodeWall.
                     const currentNodeWall = parseInt(data[(y * this.amountX) + x], 10);
-                    this.data[y][x].wall = (currentNodeWall === 0) ? false:true;
+                    this.data[y][x].wall = (currentNodeWall === 1) ? true:false;
                 }
             }
         } else {this.createEmptyNodes();}
