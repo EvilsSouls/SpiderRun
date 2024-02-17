@@ -5,10 +5,17 @@ const ctx = canvas.getContext("2d");
 const plane = new Plane(canvas, null, null);
 const player = new Player(plane, 1, 0, null, null, "./sprites/player.jpeg");
 
+let gameClock = 0;
 function updateGame() {
-    clearCanvas(ctx, canvas);
-    plane.draw();
-    player.update();
+    if(gameClock >= 60) {gameClock = 0;}
+
+    if(gameClock % 10 === 0) {
+        clearCanvas(ctx, canvas);
+        player.update();
+        plane.draw();
+    }
+
+    gameClock++;
 
     window.requestAnimationFrame(updateGame);
 }
@@ -18,7 +25,7 @@ resizeCanvas(canvas);
 const urlParams = new URLSearchParams(window.location.search);
 plane.initialize(urlParams.get("maze"));
 
-player.width = plane.data[0][0].width - 5; player.height = plane.data[0][0].height - 5;
+player.width = plane.data[0][0].width; player.height = plane.data[0][0].height;
 
 window.requestAnimationFrame(updateGame);
 

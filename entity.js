@@ -49,7 +49,6 @@ class Entity {
         this.coords = addArrays(this.coords, this.movement);
         
         if(!this.plane.inBounds(this) || this.plane.data[this.y][this.x].wall) {
-            console.log("Heyo");
             this.coords = oldCoords;
             // Maybe play sound here?
         }
