@@ -69,12 +69,12 @@ function convertHexToBin(hexNum) {
 // Adds two arrays together
 // ([10,9,8] + [1,0,-1] = [11, 9, 7])
 function addArrays(ar1, ar2) {
-    let result = []
+    let result = [];
     for(let i = 0; i < ar1.length; i++) {
-        result.push(ar1[i] + ar2[i])
+        result.push(ar1[i] + ar2[i]);
     }
-    //console.log(`The sum of the two arrays is: ${result}`)
-    return(result)
+    //console.log(`The sum of the two arrays is: ${result}`);
+    return(result);
 }
 
 // Copied from https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText.

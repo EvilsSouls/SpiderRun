@@ -174,7 +174,7 @@ class Pathfinder {
         }
     }
 
-    initialize(delay) {
+    pathfind(delay) {
         this.startNode = this.convertCoordsToObject(this.startNodeID, 0, 0, null, null);
         this.endNode = this.convertCoordsToObject(this.endNodeID, null, null, null, null);
 
@@ -182,7 +182,12 @@ class Pathfinder {
         this.sortedOpenNodes.push(this.startNodeID);
 
         const boundUpdate = this.update.bind(this);
-        this.interval = setInterval(boundUpdate, delay);
+        if(delay !== 0) {
+            this.interval = setInterval(boundUpdate, delay);
+        } else {
+            this.interval = 1;
+            while(this.interval !== null) {boundUpdate();}
+        }
         
         /*
         document.body.addEventListener("keypress", (e) => {
