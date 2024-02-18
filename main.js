@@ -30,7 +30,6 @@ function updateGame() {
         if(enemy.headStart === 0) {
             enemy.changeDirection(player.coords);
             enemy.update();
-            enemy.coords = [0,0]
 
             if(player.x === enemy.x && player.y === enemy.y) {
                 console.log("Player lost");
