@@ -18,7 +18,8 @@ function updateGame() {
         player.update();
 
         if(player.x === goal[0] && player.y === goal[1]) {
-            AppInventor.setWebViewString("Player won");
+            console.log("Player won");
+            if(AppInventor !== undefined) {AppInventor.setWebViewString("Player won")};
         }
 
         if(enemy.headStart === 0) {
@@ -26,6 +27,7 @@ function updateGame() {
             enemy.update();
 
             if(player.x === enemy.x && player.y === enemy.y) {
+                console.log("Player lost");
                 location.reload();
             }
         }
