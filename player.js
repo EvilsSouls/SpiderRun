@@ -5,6 +5,9 @@ class Player extends Entity {
 
         const boundChangeDirection = this.changeDirection.bind(this);
         document.addEventListener("keydown", boundChangeDirection);
+        document.addEventListener("touchmove", e => {
+            e.preventDefault();
+        });
         document.addEventListener("touchstart", (e) => {
             e.preventDefault();
             touchStart = getCoordsFromTouchEvent(e);
