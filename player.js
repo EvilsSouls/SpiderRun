@@ -15,7 +15,12 @@ class Player extends Entity {
         document.addEventListener("touchend", (e) => {
             e.preventDefault();
             touchEnd = getCoordsFromTouchEvent(e);
-            alert(`TouchStart: ${touchStart}, TouchEnd: ${touchEnd}`);
+            
+            const deltaX = touchStart[0] - touchEnd[0];
+            const deltaY = touchStart[1] - touchEnd[1];
+
+            if(deltaX > 0) {this.movement[0] = 1} else {this.movement[0] = -1}
+            if(deltaY > 0) {this.movement[1] = 1} else {this.movement[1] = -1}
         });
     }
 
