@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 
 const plane = new Plane(canvas, null, null);
 const player = new Player(plane, 1, 0, null, null, "./sprites/player.jpeg");
-const enemy = new Enemy(plane, 1, 0, null, null, "./sprites/enemy.png", 5);
+const enemy = new Enemy(plane, 1, 0, null, null, "./sprites/enemy.png", 8);
 
 document.getElementById("up-button").addEventListener("touchend", () => {player.movement = [0,-1]});
 document.getElementById("down-button").addEventListener("touchend", () => {player.movement = [0,1]});
