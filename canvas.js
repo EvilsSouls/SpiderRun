@@ -2,7 +2,7 @@
 function resizeCanvas(canvasEl) {
     // Sets the width & height of the element to the same as the window's
     canvasEl.width = window.innerWidth;
-    canvasEl.height = window.innerHeight - 100;
+    canvasEl.height = 0.7 * window.innerHeight;
 }
 
 function clearCanvas(ctx, canvasEl) {
