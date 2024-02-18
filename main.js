@@ -18,7 +18,7 @@ function updateGame() {
         gameClock = 0;
     }
 
-    if(gameClock % 10 === 0) {
+    if(gameClock % 20 === 0) {
         clearCanvas(ctx, canvas);
         player.update();
 
