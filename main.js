@@ -18,7 +18,7 @@ function updateGame() {
         gameClock = 0;
     }
 
-    if(gameClock % 20 === 0) {
+    if(gameClock % 15 === 0) {
         clearCanvas(ctx, canvas);
         player.update();
 
@@ -27,7 +27,7 @@ function updateGame() {
             if(typeof AppInventor !== "undefined") {AppInventor.setWebViewString("Player won");}
         }
 
-        if(enemy.headStart === 0) {
+        if(enemy.headStart === 0 && gameClock % 20 === 0) {
             enemy.changeDirection(player.coords);
             enemy.update();
 
@@ -59,7 +59,7 @@ enemy.width = plane.data[0][0].width; enemy.height = plane.data[0][0].height;
 
 window.requestAnimationFrame(updateGame);
 
-
+/*
 // When there is a left click, changes the status of the node, the mouse is currently hovering over, from free to wall or from wall to free.
 canvas.addEventListener("click", e => {
     if(e.button === 0) {
@@ -69,6 +69,7 @@ canvas.addEventListener("click", e => {
         plane.data[node.y][node.x].draw((plane.data[node.y][node.x].wall) ? "Black":"White");
     }
 });
+*/
 
 // TODO:
 // - Clean up plane.getNodeAtCoords (To give a reference to the value, not copy the value itself)
