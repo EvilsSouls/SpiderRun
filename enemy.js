@@ -13,9 +13,11 @@ class Enemy extends Entity {
         this.pathfinder.pathfind(0);
 
         const loc1 = this.pathfinder.path[0].split(",");
-        const loc2 = this.pathfinder.path[1].split(",");
+        let loc2 = this.pathfinder.path[1]?.split(",");
+
+        if(loc2 === undefined) {loc2 = loc1;}
+
         this.movement = [loc2[0] - loc1[0], loc2[1] - loc1[1]];
-        console.log(this.movement);
 
         this.pathfinder.path = [];
     }

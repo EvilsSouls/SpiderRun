@@ -101,15 +101,14 @@ class Pathfinder {
     }
 
     tracePath(originNode) {
-        let continueLoop = true;
+        let currentNode = originNode;
         while(true === true) {
-            this.path.push(originNode.convertObjectToCoords());
-            originNode = this.closedNodes.get(originNode.parent);
+            this.path.push(currentNode.convertObjectToCoords());
+            const parentNodeID = currentNode.parent;
 
-            if(!continueLoop) {break;}
-
-            // If the parent of the future current node is null then will continue for one more iteration, but will then stop.
-            if(originNode.parent === null) {continueLoop = false;}
+            if(parentNodeID !== null) {
+                currentNode = this.closedNodes.get(parentNodeID);
+            } else {break;}
         }
         // Reverses the path, as it's currently reversed.
         this.path.reverse();
@@ -133,7 +132,6 @@ class Pathfinder {
 
             if(newNodeID === this.endNodeID) {
                 this.tracePath(this.currentNode);
-                console.log(`Path found. Saved to ${this}.path`);
 
                 if(this.visualizationData.finalPathColor !== null) {
                     this.plane.drawNodesInArray(this.path, this.visualizationData.finalPathColor);
