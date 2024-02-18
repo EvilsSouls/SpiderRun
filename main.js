@@ -17,9 +17,9 @@ function updateGame() {
         clearCanvas(ctx, canvas);
         player.update();
 
-        if(player.x === goal[0] && player.y === goal[1]) {
+        if(player.x == goal[0] && player.y == goal[1]) {
             console.log("Player won");
-            if(AppInventor !== undefined) {AppInventor.setWebViewString("Player won")};
+            if(typeof AppInventor !== "undefined") {AppInventor.setWebViewString("Player won");}
         }
 
         if(enemy.headStart === 0) {
