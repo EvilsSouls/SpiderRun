@@ -5,10 +5,11 @@ const ctx = canvas.getContext("2d");
 const plane = new Plane(canvas, null, null);
 const player = new Player(plane, 1, 0, null, null, "./sprites/player.jpeg");
 const enemy = new Enemy(plane, 1, 0, null, null, "./sprites/enemy.png", 5);
-const touchStart = [0, 0];
-const touchEnd = [0, 0];
 
-document.addEventListener("touchmove", (e) => {e.preventDefault})
+document.getElementById("up-button").addEventListener("touchend", () => {player.movement = [0,-1]});
+document.getElementById("down-button").addEventListener("touchend", () => {player.movement = [0,1]});
+document.getElementById("left-button").addEventListener("touchend", () => {player.movement = [-1,0]});
+document.getElementById("right-button").addEventListener("touchend", () => {player.movement = [1,0]});
 
 let gameClock = 0;
 function updateGame() {
