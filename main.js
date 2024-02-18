@@ -8,6 +8,8 @@ const enemy = new Enemy(plane, 1, 0, null, null, "./sprites/enemy.png", 5);
 const touchStart = [0, 0];
 const touchEnd = [0, 0];
 
+document.addEventListener("touchmove", (e) => {e.preventDefault})
+
 let gameClock = 0;
 function updateGame() {
     if(gameClock >= 60) {
