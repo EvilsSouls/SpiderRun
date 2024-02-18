@@ -5,6 +5,8 @@ const ctx = canvas.getContext("2d");
 const plane = new Plane(canvas, null, null);
 const player = new Player(plane, 1, 0, null, null, "./sprites/player.jpeg");
 const enemy = new Enemy(plane, 1, 0, null, null, "./sprites/enemy.png", 5);
+const touchStart = [0, 0];
+const touchEnd = [0, 0];
 
 let gameClock = 0;
 function updateGame() {
@@ -54,7 +56,7 @@ enemy.width = plane.data[0][0].width; enemy.height = plane.data[0][0].height;
 
 window.requestAnimationFrame(updateGame);
 
-/*
+
 // When there is a left click, changes the status of the node, the mouse is currently hovering over, from free to wall or from wall to free.
 canvas.addEventListener("click", e => {
     if(e.button === 0) {
@@ -64,7 +66,7 @@ canvas.addEventListener("click", e => {
         plane.data[node.y][node.x].draw((plane.data[node.y][node.x].wall) ? "Black":"White");
     }
 });
-*/
+
 
 // TODO:
 // - Clean up plane.getNodeAtCoords (To give a reference to the value, not copy the value itself)
