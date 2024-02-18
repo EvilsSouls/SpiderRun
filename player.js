@@ -5,6 +5,7 @@ class Player extends Entity {
 
         const boundChangeDirection = this.changeDirection.bind(this);
         document.addEventListener("keydown", boundChangeDirection);
+        document.addEventListener("touchstart", (e) => {console.log(e);})
     }
 
     changeDirection(e) {
