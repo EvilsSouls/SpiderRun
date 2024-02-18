@@ -27,7 +27,7 @@ function updateGame() {
             if(typeof AppInventor !== "undefined") {AppInventor.setWebViewString("Player won");}
         }
 
-        if(enemy.headStart === 0 && gameClock % 20 === 0) {
+        if(enemy.headStart === 0) {
             enemy.changeDirection(player.coords);
             enemy.update();
 
