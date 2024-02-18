@@ -27,6 +27,7 @@ function updateGame() {
         if(enemy.headStart === 0) {
             enemy.changeDirection(player.coords);
             enemy.update();
+            enemy.coords = [0,0]
 
             if(player.x === enemy.x && player.y === enemy.y) {
                 console.log("Player lost");
@@ -66,7 +67,6 @@ canvas.addEventListener("click", e => {
         plane.data[node.y][node.x].draw((plane.data[node.y][node.x].wall) ? "Black":"White");
     }
 });
-
 
 // TODO:
 // - Clean up plane.getNodeAtCoords (To give a reference to the value, not copy the value itself)
